@@ -24,7 +24,8 @@
       "@providers/*": ["./src/providers/*"],
       "@utils/*": ["./src/utils/*"],
       "@dtos/*": ["./src/dtos/*"],
-      "@models/*": ["./src/models/*"]
+      "@models/*": ["./src/models/*"],
+      "@mocks/*": ["./src/mocks/*"]
     },
   }
 }

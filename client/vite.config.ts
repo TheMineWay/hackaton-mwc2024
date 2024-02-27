@@ -5,6 +5,13 @@ import * as path from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: true,
+    port: 80,
+    watch: {
+      usePolling: true,
+    },
+  },
   resolve: {
     alias: [
       { find: "@assets", replacement: path.resolve(__dirname, "src/assets") },

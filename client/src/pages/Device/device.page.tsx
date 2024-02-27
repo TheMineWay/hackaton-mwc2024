@@ -4,6 +4,7 @@ import { Skeleton } from 'antd';
 import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import DeviceMap from '../../components/Map/device-map';
 import styles from './device.module.css';
+import { useDeviceStatus } from '../../hooks/status/use-device-status';
 
 export default function Device() {
   
@@ -13,7 +14,7 @@ export default function Device() {
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
 
-  const online = false;
+  const { isOnline } = useDeviceStatus();
 
   if (!device) return <Skeleton paragraph/>;
 
@@ -21,7 +22,7 @@ export default function Device() {
     <div className={styles.device}>
       <h2>{device.name}</h2>
       <p>{device.description}</p>
-      <h3>Status: {online ? '🟢 online' : '🔴 offline'}</h3>
+      <h3>Status: {isOnline ? '🟢 online' : '🔴 offline'}</h3>
       <h5>Dispositivo: {device.type}</h5>
       <h5>Marca: Nokia</h5>
       <h5>Modelo: Nokia</h5>

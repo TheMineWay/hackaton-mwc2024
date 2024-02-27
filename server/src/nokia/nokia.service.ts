@@ -13,31 +13,46 @@ export class NokiaService {
   }
 
   async getDeviceLocationByDeviceId(deviceId: string) {
-    return await this.request('retrieve', {
+    return await this.request<{
+      lastLocationTime: string;
+      area: {
+        areaType: string;
+        center: {
+          latitude: number;
+          longitude: number;
+        };
+        radius: number;
+      };
+      civicAddress?: {
+        country: string;
+        A1?: string;
+        A2?: string;
+      };
+    }>('retrieve', {
       method: 'POST',
       data: {
         device: {
-          networkAccessIdentifier: [
-            '549f5eb2-96ca-4bfa-a52f-32efc7467973@testcsp.net',
-          ],
+          networkAccessIdentifier: deviceId,
         },
-        maxAge: {},
+        maxAge: 1000,
       },
     });
   }
 
   private async request<T extends object = object>(
     path: string,
-    config: Omit<AxiosRequestConfig<T>, 'url'>,
+    config: Omit<AxiosRequestConfig, 'url'>,
   ) {
-    return await axios.request({
-      ...config,
-      url: `${this.apiHost}/${path}`,
-      headers: {
-        ...(config.headers ?? {}),
-        'X-RapidAPI-Key': this.apiKey,
-        'X-RapidAPI-Host': 'location-retrieval.nokia.rapidapi.com',
-      },
-    });
+    return (
+      await axios.request<T>({
+        ...config,
+        url: `${this.apiHost}/${path}`,
+        headers: {
+          ...(config.headers ?? {}),
+          'X-RapidAPI-Key': this.apiKey,
+          'X-RapidAPI-Host': 'location-retrieval.nokia.rapidapi.com',
+        },
+      })
+    ).data;
   }
 }

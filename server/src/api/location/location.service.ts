@@ -6,6 +6,15 @@ export class LocationService {
   constructor(private readonly nokiaService: NokiaService) {}
 
   async getLocationByDeviceId(deviceId: string) {
-    return await this.nokiaService.getDeviceLocationByDeviceId(deviceId);
+    const info = await this.nokiaService.getDeviceLocationByDeviceId(deviceId);
+
+    return {
+      latitude: info.area.center.latitude,
+      longitude: info.area.center.longitude,
+      radius: info.area.radius,
+      country: info.civicAddress?.country,
+      lastLocationTime: info.lastLocationTime,
+      raw: info,
+    };
   }
 }

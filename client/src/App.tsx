@@ -1,12 +1,33 @@
-import { useState } from 'react'
+import Navbar from './components/navbar';
+import Main from './components/main';
+import { ConfigProvider, theme } from 'antd';
+const { darkAlgorithm, compactAlgorithm } = theme;
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <div>test</div>
+
+
+    <div className="app">
+      <Navbar />
+      <ConfigProvider
+        theme={{
+          algorithm: darkAlgorithm,
+          token: {
+            colorPrimary: '#000',
+            borderRadius: 2,
+            colorBgContainer: '#000',
+            
+          },
+        }}
+      >
+
+      <Main />
+
+     </ConfigProvider>
+    </div>
     </>
   )
 }

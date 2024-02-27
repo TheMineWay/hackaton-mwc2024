@@ -1,0 +1,11 @@
+.device__container {
+  display: flex;
+  gap: 20px;
+}
+
+.device {
+  flex: 1;
+  flex-direction: column;
+  background-color: #202020;
+  padding: 40px;
+}

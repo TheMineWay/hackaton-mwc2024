@@ -1,7 +1,7 @@
 import React from "react";
 import { Route as RouterRoute, Routes } from "react-router-dom";
 import LoadingRoute from "./loading.route";
-import Main from "../components/main";
+import Main from "../components/Main/main";
 
 export type Route = {
   path: string;

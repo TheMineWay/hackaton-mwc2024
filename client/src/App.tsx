@@ -1,4 +1,4 @@
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar/navbar';
 import { ConfigProvider, theme } from 'antd';
 const { darkAlgorithm } = theme;
 import Router from './router/router';
@@ -10,8 +10,6 @@ function App() {
 
   return (
     <>
-
-
     <div className="app">
       <Navbar />
       <ConfigProvider

@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import Card from '../../components/Card/DeviceCard';
 import styles from './MyDevices.module.css';
-import axios from 'axios';
+import { useAllDevices } from "../../hooks/devices/use-all-devices";
 
 export default function MyDevices() {
+
+  const { data } = useAllDevices();
+  console.log(data);
 
   const devices = [
     {name: 'Device 1', description: 'Random description', id: '1', type: 'Mobile'},

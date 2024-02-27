@@ -1,12 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
 import { DevicesService } from './devices.service';
 
 @Controller('devices')
 export class DevicesController {
   constructor(private readonly devicesService: DevicesService) {}
 
-  @Get('all')
+  @Get()
   async getAllDevices() {
     return await this.devicesService.getAllDevices();
+  }
+
+  @Get(':id')
+  async getDeviceById(@Param('id') id: string) {
+    const device = await this.devicesService.findById(id);
+    if (!device) throw new NotFoundException();
+    return device;
   }
 }

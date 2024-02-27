@@ -9,4 +9,8 @@ export class DevicesService {
   async getAllDevices() {
     return DEVICES_MOCK;
   }
+
+  async findById(id: string) {
+    return DEVICES_MOCK.filter(({ id: d_id }) => d_id === id)?.[0];
+  }
 }

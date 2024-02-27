@@ -1,11 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { MapContainer } from 'react-leaflet/MapContainer';
-import { TileLayer } from 'react-leaflet/TileLayer';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
-import { Skeleton, Tag } from 'antd';
-import styles from './device.module.css';
+import { Skeleton } from 'antd';
 import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import DeviceMap from '../../components/Map/device-map';
+import styles from './device.module.css';
 
 export default function Device() {
   

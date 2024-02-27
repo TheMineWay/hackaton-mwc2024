@@ -1,23 +1,48 @@
 .account__container {
   display: flex;
+  gap: 15px;
+}
+
+.container {
+  display: flex;
   flex: 1;
   background-color: #202020;
   padding: 20px 40px;
   position: relative;
+  flex-direction: column;
+  max-width: 50vw;
+  flex-wrap: wrap;
+}
+
+.container:nth-child(2) {
+  max-width: 300px;
+  align-items: center;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.form__row {
+  display: flex;
+  flex: 1;
+  gap: 10px;
 }
 
 .account__container__col {
-  flex-direction: column;
   flex: 1;
 }
 
-.user__container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+input::placeholder, select::placeholder {
+  color: #666666 !important;
 }
 
-.user__avatar__container {
-  border-radius: 50%;
-  position: relative;  overflow: hidden;
+.username {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+  margin: 20px 0;
 }

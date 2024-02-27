@@ -4,7 +4,6 @@ import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from 'antd';
-// import { }
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
 
@@ -17,9 +16,6 @@ export default function Device() {
 
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
-
-  console.log(device)
-
   const { isOnline, setOnlineStatus } = useDeviceStatus();
   
   if (!device) return <Skeleton paragraph/>;

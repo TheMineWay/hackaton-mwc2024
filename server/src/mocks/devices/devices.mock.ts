@@ -10,7 +10,7 @@ export const DEVICES_MOCK = [
     screenSize: '6.1 inches',
     storage: '256GB',
     connection: '4G',
-    description: 'Mobile phone with iOS operating system, 6.1-inch screen, and 256GB storage'
+    description: 'iOS Mobile, 6.1-inch screen, 256GB storage'
   },
   {
     id: 'joel2@testcsp.net',
@@ -24,7 +24,7 @@ export const DEVICES_MOCK = [
     storage: '512GB SSD',
     IP: '192.168.1.100',
     connection: '5G',
-    description: 'desktop PC / Windows 10 operating system, 8GB of RAM, Intel Core i5 processor, and 512GB SSD storage',
+    description: 'W10 PC, 8GB RAM, Intel Core i5 processor, 512GB SSD storage',
   },
   {
     id: 'joel3@testcsp.net',
@@ -36,7 +36,7 @@ export const DEVICES_MOCK = [
     resolution: '1080p HD',
     internetAccess: true,
     connection: '5G',
-    description: 'Nest Cam IQ Outdoor security camera'
+    description: 'Nest Cam IQ Outdoor security camera, 1080p HD'
   },
 ];
 // export const DEVICES_MOCK = [

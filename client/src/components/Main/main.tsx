@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import { DesktopOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../router/routes';
+import styles from './main.module.css';
 
 const { Sider } = Layout;
 
@@ -44,7 +45,9 @@ export default function Main({ children }: Props) {
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
       <Layout style={{ padding: '0 20px'}}>
-        {children}
+        <div className={styles.container}>
+          {children}
+        </div>
       </Layout>
     </Layout>
   );

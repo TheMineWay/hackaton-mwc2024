@@ -14,10 +14,12 @@ export class NokiaService {
 
   async getDeviceLocationByDeviceId(deviceId: string) {
     return await this.request('retrieve', {
-      method: 'post',
+      method: 'POST',
       data: {
         device: {
-          networkAccessIdentifier: {},
+          networkAccessIdentifier: [
+            '549f5eb2-96ca-4bfa-a52f-32efc7467973@testcsp.net',
+          ],
         },
         maxAge: {},
       },

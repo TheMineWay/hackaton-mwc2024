@@ -1,0 +1,23 @@
+.account__container {
+  display: flex;
+  flex: 1;
+  background-color: #202020;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.account__container__col {
+  flex-direction: column;
+  flex: 1;
+}
+
+.user__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user__avatar__container {
+  border-radius: 50%;
+  position: relative;  overflow: hidden;
+}

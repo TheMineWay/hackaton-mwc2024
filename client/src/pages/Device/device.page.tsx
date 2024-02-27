@@ -4,6 +4,7 @@ import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from 'antd';
+// import { }
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
 
@@ -17,6 +18,8 @@ export default function Device() {
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
 
+  console.log(device)
+
   const { isOnline, setOnlineStatus } = useDeviceStatus();
   
   if (!device) return <Skeleton paragraph/>;
@@ -29,21 +32,30 @@ export default function Device() {
       <div className={styles.device__info}>
         <div className={styles.device__info__col}>
           <h5>Dispositivo: {device.type}</h5>
-          <h5>Marca: Nokia</h5>
           <h5>Modelo: Nokia</h5>
-          <h5>Nombre de modelo</h5>
+          <h5>Nombre de modelo: {device.name}</h5>
+          <h5>Connection: {device.connection}</h5>
         </div>
         <div className={styles.device__info__col}>
-          <h5>IMEI</h5>
           <h5>Conectado a: PC-Casa</h5>
           <h5>Pais: España</h5>
+          {
+            device.operatingSystem ? 
+            <>
+              <h5>Operative System: {device.operatingSystem}</h5> 
+              <h5>Storage: {device.storage}</h5> 
+            </>
+            :
+            <h5>Resolution: {device.resolution}</h5>
+          }
         </div>
       </div>
       
       <div className={styles.icons}>
         <PhoneFilled title="Videocall" onClick={() => window.open('tel:' + phone)}/>
         <EditOutlined title="Edit" />
-        { isOnline ? 
+        { 
+        isOnline ? 
           <ApiOutlined title="Connect" onClick={() => setOnlineStatus(!isOnline)} />
         : 
           <DisconnectOutlined title="Disconnect" onClick={() => setOnlineStatus(!isOnline)} />

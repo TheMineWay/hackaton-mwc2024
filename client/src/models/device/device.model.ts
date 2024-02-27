@@ -5,5 +5,9 @@ export interface DeviceModel {
   serialNumber: string;
   phoneNumber: string;
   description: string;
-  type: "PC" | "Mobile";
+  connection: string;
+  resolution: string;
+  operatingSystem: string;
+  storage: string;
+  type: "PC" | "Mobile" | "Camera";
 }

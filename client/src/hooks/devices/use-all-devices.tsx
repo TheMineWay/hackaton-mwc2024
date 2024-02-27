@@ -1,7 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-interface Device {}
+interface Device {
+    id: string;
+    name: string;
+    model: string;
+    serialNumber: string;
+    phoneNumber: string;
+}
 
 export function useAllDevices() {
     return useQuery({

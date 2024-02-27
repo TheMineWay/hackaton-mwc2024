@@ -39,7 +39,7 @@ const items: MenuItem[] = [
   getItem('Files', '9', <FileOutlined />),
 ];
 
-const App: React.FC = () => {
+export default function Main() {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -75,6 +75,4 @@ const App: React.FC = () => {
       </Layout>
     </Layout>
   );
-};
-
-export default App;
+}

@@ -1,7 +1,9 @@
 import Navbar from './components/navbar';
-import Main from './components/main';
 import { ConfigProvider, theme } from 'antd';
-const { darkAlgorithm, compactAlgorithm } = theme;
+const { darkAlgorithm } = theme;
+import Router from './router/router';
+import routes_definition from './router/definitions';
+import { BrowserRouter } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
         }}
       >
 
-      <Main />
+        <BrowserRouter>
+                <Router routes={routes_definition} />
+        </BrowserRouter>
 
      </ConfigProvider>
     </div>

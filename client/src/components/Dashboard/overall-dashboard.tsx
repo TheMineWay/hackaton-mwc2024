@@ -1,6 +1,7 @@
 import { Col, Row, Skeleton } from 'antd';
 import DeviceMap from '../Map/device-map';
 import { useAllDevicesInfo } from '../../hooks/devices/use-all-devices-info';
+import styles from './overall-dashboard.module.css';
 
 export function OverallDashboard() {
 
@@ -22,7 +23,7 @@ export function OverallDashboard() {
             <Col xs={24} md={12}>
             </Col>
             <Col xs={24} md={12}>
-                <DeviceMap location={sumLoc} pointers={data.map((l) => ({
+                <DeviceMap className={styles.map} location={sumLoc} pointers={data.map((l) => ({
                     lng: l.location.longitude,
                     lat: l.location.latitude,
                 }))}/>

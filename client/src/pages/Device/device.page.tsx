@@ -6,6 +6,8 @@ import { ApiOutlined, EditOutlined, PhoneFilled } from '@ant-design/icons';
 import DeviceMap from '../../components/Map/device-map';
 import { useDeviceLocation } from '../../hooks/location/use-device-location';
 
+const phone = '';
+
 export default function Device() {
   
   const { id } = useParams();
@@ -37,7 +39,7 @@ export default function Device() {
       <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
       
       <div className={styles.icons}>
-        <PhoneFilled title="Videocall" />
+        <PhoneFilled title="Videocall" onClick={() => window.open('tel:' + phone)}/>
         <EditOutlined title="Edit" />
         <ApiOutlined title="Disconnect" />
       </div>

@@ -11,6 +11,11 @@
   position: relative;
 }
 
+.device__info {
+  display: flex;
+  gap: 200px;
+}
+
 .icons {
   display: flex;
   position: absolute;
@@ -24,3 +29,4 @@
   cursor: pointer;
   font-size: 22px;
 }
+

@@ -5,20 +5,24 @@ import styles from './device-map.module.css';
 
 type Props = {
     location?: DeviceLocationModel;
+    pointers?: {lat: number, lng: number}[];
+    className?: string;
 }
 
-export default function DeviceMap({ location }: Props) {
+export default function DeviceMap({ location, pointers, className }: Props) {
     return <div className={styles.map}>
         {location ? (
-            <MapContainer style={{ height: '25em'}} center={[location.latitude, location.longitude]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer className={className} style={{ height: '25em'}} center={[location.latitude, location.longitude]} zoom={12} scrollWheelZoom={false}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`}
               />
-              <Popup position={{
-                lat: location.latitude,
-                lng: location.longitude,
-              }}>Device is here</Popup>
+              {
+                pointers?.map(({ lng, lat }, i) => (<Popup key={i} position={{
+                  lat,
+                  lng,
+                }}>Device is here</Popup>))
+              }
             </MapContainer>
           ) : (<Skeleton/>)}
     </div>

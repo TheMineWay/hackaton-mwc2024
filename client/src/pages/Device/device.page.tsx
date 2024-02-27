@@ -2,10 +2,12 @@ import { useParams } from 'react-router-dom';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { Skeleton } from 'antd';
 import { useDeviceLocation } from '../../hooks/location/use-device-location';
-import DeviceMap from '../../components/Map/device-map';
 import styles from './device.module.css';
 import { ApiOutlined, DisconnectOutlined, EditOutlined, MenuOutlined, PhoneFilled } from '@ant-design/icons';
 import { useDeviceStatus } from '../../hooks/status/use-device-status';
+import DeviceMap from '../../components/Map/device-map';
+
+const phone = '';
 
 export default function Device() {
   
@@ -39,7 +41,7 @@ export default function Device() {
       </div>
       
       <div className={styles.icons}>
-        <PhoneFilled title="Videocall" />
+        <PhoneFilled title="Videocall" onClick={() => window.open('tel:' + phone)}/>
         <EditOutlined title="Edit" />
         { isOnline ? 
           <ApiOutlined title="Connect" onClick={() => setOnlineStatus(!isOnline)} />

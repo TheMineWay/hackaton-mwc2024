@@ -4,7 +4,6 @@ import Router from './router/router';
 import routes_definition from './router/definitions';
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import styles from './App.module.css';
 
 const { darkAlgorithm } = theme;
 

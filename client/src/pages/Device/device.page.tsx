@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
-import { useDeviceById } from '../../hooks/devices/use-device-by-id';
-import { Skeleton } from 'antd';
-import { useDeviceLocation } from '../../hooks/location/use-device-location';
-import styles from './device.module.css';
 import { ApiOutlined, DisconnectOutlined, EditOutlined, MenuOutlined, PhoneFilled } from '@ant-design/icons';
+import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import { useDeviceStatus } from '../../hooks/status/use-device-status';
+import { useDeviceById } from '../../hooks/devices/use-device-by-id';
+import { useParams } from 'react-router-dom';
+import { Skeleton } from 'antd';
+import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
 
 const phone = '';
@@ -27,18 +27,20 @@ export default function Device() {
       <p>{device.description}</p>
       <h3>Status: {isOnline ? '🟢 online' : '🔴 offline'}</h3>
       <div className={styles.device__info}>
-        <div className="device__info__col">
+        <div className={styles.device__info__col}>
           <h5>Dispositivo: {device.type}</h5>
           <h5>Marca: Nokia</h5>
           <h5>Modelo: Nokia</h5>
           <h5>Nombre de modelo</h5>
         </div>
-        <div className="device__info__col">
+        <div className={styles.device__info__col}>
           <h5>IMEI</h5>
           <h5>Conectado a: PC-Casa</h5>
           <h5>Pais: España</h5>
         </div>
       </div>
+
+      <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
       
       <div className={styles.icons}>
         <PhoneFilled title="Videocall" onClick={() => window.open('tel:' + phone)}/>

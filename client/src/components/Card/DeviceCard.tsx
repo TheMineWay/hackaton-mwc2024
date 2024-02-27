@@ -9,9 +9,6 @@ type cardProps = {
 }
 
 function DeviceCard({title, description, type}: cardProps) {
-
-  
-
   return (
     <Card title={
       type == "Mobile" ? 

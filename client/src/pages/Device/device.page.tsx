@@ -20,6 +20,9 @@ export default function Device() {
         <h5>Nombre de modelo</h5>
         <h5>IMEI</h5>
       </div>
+      <div className="icons">
+        
+      </div>
     </>
     )   
 }

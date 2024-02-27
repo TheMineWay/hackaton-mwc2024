@@ -1,6 +1,6 @@
-import { ENV } from '@constants/env.constant';
 import { NOKIA } from '@constants/nokia.constant';
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import axios, { AxiosRequestConfig } from 'axios';
 
 @Injectable()
@@ -8,8 +8,8 @@ export class NokiaService {
   readonly apiKey: string;
   readonly apiHost = NOKIA.apiHost;
 
-  constructor() {
-    this.apiKey = ENV.NOKIA_API_KEY;
+  constructor(private readonly configService: ConfigService) {
+    this.apiKey = configService.get('nokiaApiKey');
   }
 
   async getDeviceLocationByDeviceId(deviceId: string) {
@@ -28,7 +28,6 @@ export class NokiaService {
     path: string,
     config: Omit<AxiosRequestConfig<T>, 'url'>,
   ) {
-    return this.apiKey;
     return await axios.request({
       ...config,
       url: `${this.apiHost}/${path}`,

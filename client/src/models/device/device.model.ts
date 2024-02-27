@@ -4,4 +4,6 @@ export interface DeviceModel {
   model: string;
   serialNumber: string;
   phoneNumber: string;
+  description: string;
+  type: "PC" | "Mobile";
 }

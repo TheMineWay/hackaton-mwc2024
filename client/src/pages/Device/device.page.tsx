@@ -4,6 +4,8 @@ import { TileLayer } from 'react-leaflet/TileLayer';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { Skeleton } from 'antd';
 import styles from './device.module.css';
+import { useDeviceLocation } from '../../hooks/location/use-device-location';
+import DeviceMap from '../../components/Map/device-map';
 
 export default function Device() {
   
@@ -11,6 +13,7 @@ export default function Device() {
   if (!id) throw new Error();
 
   const { data: device } = useDeviceById(id);
+  const { data: location } = useDeviceLocation(id);
 
   const online = false;
 
@@ -27,12 +30,9 @@ export default function Device() {
       <h5>Nombre de modelo</h5>
       <h5>IMEI</h5>
 
-      <MapContainer style={{ height: '25em'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-      </MapContainer>
+      <div>
+        <DeviceMap location={location}/>
+      </div>
     </div>
   );
 }

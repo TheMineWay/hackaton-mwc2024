@@ -36,7 +36,7 @@ export default function Device() {
       <h5>Conectado a: PC-Casa</h5>
       <h5>Pais: España</h5>
 
-      <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
+      <DeviceMap className={styles.map} location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
       
       <div className={styles.icons}>
         <PhoneFilled title="Videocall" onClick={() => window.open('tel:' + phone)}/>

@@ -24,3 +24,7 @@
   cursor: pointer;
   font-size: 22px;
 }
+
+.map {
+  height: 20em;
+}

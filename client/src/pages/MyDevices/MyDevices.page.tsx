@@ -2,31 +2,22 @@ import { Link } from "react-router-dom";
 import Card from '../../components/Card/DeviceCard';
 import styles from './MyDevices.module.css';
 import { useAllDevices } from "../../hooks/devices/use-all-devices";
+import { routes } from "../../router/routes";
 
 export default function MyDevices() {
 
-  const { data } = useAllDevices();
-  console.log(data);
-
-  const devices = [
-    {name: 'Device 1', description: 'Random description', id: '1', type: 'Mobile'},
-    {name: 'Device 2', description: 'Random description', id: '2', type: 'Mobile'},
-    {name: 'Device 2', description: 'Random description', id: '2', type: 'PC'},
-  ]
+  const { data: devices } = useAllDevices();
 
     return (
-    <>
       <div className={styles.devices__container}>
-      {devices ? devices.map((device, index) => (
-        <Link to={device.id}>
-          <Card key={index} title={device.name} description={device.description} type={device.type} />
-        </Link>
-      )) 
-      : 
-      'There are no devices yet'
-      }
+        {devices ? devices.map((device) => (
+          <Link to={routes.DEVICE(device.id)} key={device.id}>
+            <Card title={device.name} description={device.description} type={device.type} />
+          </Link>
+        )) 
+        : 
+        'There are no devices yet'
+        }
       </div>
-    </>
-    )
-    
+    );
 }

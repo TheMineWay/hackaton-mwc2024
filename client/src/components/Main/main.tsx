@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import { DesktopOutlined, HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../router/routes';
+import styles from './main.module.css';
 
 const { Sider } = Layout;
 
@@ -38,13 +39,15 @@ export default function Main({ children }: Props) {
   ];
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: 'calc(100vh - 3.5rem)' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
         <div className="demo-logo-vertical" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
       <Layout style={{ padding: '0 20px'}}>
-        {children}
+        <div className={styles.container}>
+          {children}
+        </div>
       </Layout>
     </Layout>
   );

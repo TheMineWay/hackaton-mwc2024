@@ -4,7 +4,6 @@ import Router from './router/router';
 import routes_definition from './router/definitions';
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import './App.css';
 
 const { darkAlgorithm } = theme;
 
@@ -21,8 +20,6 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="app">
-        <Navbar />
         <ConfigProvider
           theme={{
             algorithm: darkAlgorithm,
@@ -34,13 +31,11 @@ function App() {
             },
           }}
         >
-
           <BrowserRouter>
-                  <Router routes={routes_definition} />
+            <Navbar />
+            <Router routes={routes_definition} />
           </BrowserRouter>
-
       </ConfigProvider>
-      </div>
     </QueryClientProvider>
   )
 }

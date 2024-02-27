@@ -6,7 +6,11 @@ import { routes } from '../router/routes';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-export default function Main() {
+type Props = {
+  children: JSX.Element;
+}
+
+export default function Main({ children }: Props) {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -26,26 +30,7 @@ export default function Main() {
         }]} />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0', background: colorBgContainer }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-         {new Date().getFullYear()}
-        </Footer>
+        {children}
       </Layout>
     </Layout>
   );

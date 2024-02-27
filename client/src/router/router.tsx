@@ -1,6 +1,7 @@
 import React from "react";
 import { Route as RouterRoute, Routes } from "react-router-dom";
 import LoadingRoute from "./loading.route";
+import Main from "../components/main";
 
 export type Route = {
   path: string;
@@ -18,7 +19,8 @@ export default function Router(props: Props) {
   const routes = normalizeRoutes(props.routes);
 
   return (
-    <Routes>
+    <Main>
+      <Routes>
       <RouterRoute path="*" element={<>404</>} />
       {routes.map((route) => {
         const RouteComponent = React.lazy(route.loader);
@@ -36,6 +38,7 @@ export default function Router(props: Props) {
         );
       })}
     </Routes>
+    </Main>
   );
 }
 

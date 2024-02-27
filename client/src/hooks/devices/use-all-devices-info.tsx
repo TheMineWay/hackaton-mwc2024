@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { DeviceLocationModel } from "../../models/location/device-location.model";
 
-export function useAllDevices() {
+export function useAllDevicesInfo() {
     return useQuery({
         queryKey: ['all-devices', 'info'],
         queryFn: async () => {

@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { MapContainer } from 'react-leaflet/MapContainer';
-import { TileLayer } from 'react-leaflet/TileLayer';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { Skeleton } from 'antd';
 import styles from './device.module.css';
 import { ApiOutlined, EditOutlined, PhoneFilled } from '@ant-design/icons';
+import DeviceMap from '../../components/Map/device-map';
+import { useDeviceLocation } from '../../hooks/location/use-device-location';
 
 export default function Device() {
   
@@ -12,6 +12,7 @@ export default function Device() {
   if (!id) throw new Error();
 
   const { data: device } = useDeviceById(id);
+  const { data: location } = useDeviceLocation(id);
 
   const online = false;
 
@@ -33,12 +34,7 @@ export default function Device() {
       <h5>Conectado a: PC-Casa</h5>
       <h5>Pais: España</h5>
 
-      <MapContainer style={{ height: '25em'}} center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-      </MapContainer>
+      <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
       
       <div className={styles.icons}>
         <PhoneFilled title="Videocall" />

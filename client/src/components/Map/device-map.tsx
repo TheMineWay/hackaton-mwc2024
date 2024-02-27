@@ -5,9 +5,10 @@ import styles from './device-map.module.css';
 
 type Props = {
     location?: DeviceLocationModel;
+    pointers?: {lat: number, lng: number}[];
 }
 
-export default function DeviceMap({ location }: Props) {
+export default function DeviceMap({ location, pointers }: Props) {
     return <div className={styles.map}>
         {location ? (
             <MapContainer style={{ height: '25em'}} center={[location.latitude, location.longitude]} zoom={13} scrollWheelZoom={false}>
@@ -15,10 +16,12 @@ export default function DeviceMap({ location }: Props) {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`}
               />
-              <Popup position={{
-                lat: location.latitude,
-                lng: location.longitude,
-              }}>Device is here</Popup>
+              {
+                pointers?.map(({ lng, lat }) => (<Popup position={{
+                  lat,
+                  lng,
+                }}>Device is here</Popup>))
+              }
             </MapContainer>
           ) : (<Skeleton/>)}
     </div>

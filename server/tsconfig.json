@@ -22,7 +22,9 @@
       "@types/*": ["./src/types/*"],
       "@api/*": ["./src/api/*"],
       "@providers/*": ["./src/providers/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@dtos/*": ["./src/dtos/*"],
+      "@models/*": ["./src/models/*"]
     },
   }
 }

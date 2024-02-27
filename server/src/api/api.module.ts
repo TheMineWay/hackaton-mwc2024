@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { LocationModule } from './location/location.module';
 
-@Module({})
+@Module({
+  imports: [LocationModule],
+})
 export class ApiModule {}

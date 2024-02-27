@@ -7,5 +7,20 @@
   flex: 1;
   flex-direction: column;
   background-color: #202020;
-  padding: 40px;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.icons {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px;
+  gap: 15px;
+}
+
+.icons * {
+  cursor: pointer;
+  font-size: 22px;
 }

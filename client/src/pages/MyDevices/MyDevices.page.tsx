@@ -3,6 +3,7 @@ import Card from '../../components/Card/DeviceCard';
 import styles from './MyDevices.module.css';
 import { useAllDevices } from "../../hooks/devices/use-all-devices";
 import { routes } from "../../router/routes";
+import { Skeleton } from "antd";
 
 export default function MyDevices() {
 
@@ -16,7 +17,7 @@ export default function MyDevices() {
           </Link>
         )) 
         : 
-        'There are no devices yet'
+          <Skeleton />
         }
       </div>
     );

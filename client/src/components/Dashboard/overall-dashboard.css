@@ -1,0 +1,26 @@
+.map {
+    height: 50%;
+    min-height: 35em;
+}
+
+h2 {
+  font-size: 26;
+}
+
+.container {
+  background-color: #242424;
+  padding: 0 20px 40px 20px;
+}
+
+.doughnut_map__container {
+  display: flex;
+  gap: 30px;
+}
+
+.doughnut__container{
+  flex: 2;
+}
+
+.map__container {
+  flex: 1;
+}

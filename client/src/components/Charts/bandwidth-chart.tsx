@@ -28,7 +28,7 @@ export default function BandwidthChart() {
   
   return <Row gutter={[6, 6]}>
     <Col span={24}>
-      <h3>Today's network slices usage (per hour)</h3>
+      <h2>Today's network slices usage (per hour)</h2>
     </Col>
     <Col span={24} style={{ height: '30em', width: '30em' }}>
       <Doughnut   width={"60%"}

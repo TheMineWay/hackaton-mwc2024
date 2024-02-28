@@ -2,8 +2,8 @@ import { Col, Row, Skeleton } from 'antd';
 import { useAllDevicesInfo } from '../../hooks/devices/use-all-devices-info';
 import DeviceMap from '../Map/device-map';
 import DashboardTable from '../Table/dashboardTable';
-import styles from './overall-dashboard.module.css';
 import BandwidthChart from '../Charts/bandwidth-chart';
+import './overall-dashboard.css';
 
 export function OverallDashboard() {
 
@@ -22,18 +22,23 @@ export function OverallDashboard() {
 
     return (
       <>
-        <DashboardTable />
-        <Row>
-            <Col xs={24} md={12}>
-                <BandwidthChart/>
-            </Col>
-            <Col xs={24} md={12}>
-                <DeviceMap className={styles.map} location={sumLoc} pointers={data.map((l) => ({
-                    lng: l.location.longitude,
-                    lat: l.location.latitude,
-                }))}/>
-            </Col>
-        </Row>
+        <div className="dashboard__container">
+          <div className="dashboardTable__container">
+            <DashboardTable />
+          </div>
+          <div className="doughnut_map__container">
+            <div className="doughnut__container container">
+              <BandwidthChart/>
+            </div>
+            <div className="map__container container">
+              <h2>All Devices</h2>
+              <DeviceMap className="map" location={sumLoc} pointers={data.map((l) => ({
+                  lng: l.location.longitude,
+                  lat: l.location.latitude,
+              }))}/>
+            </div>
+          </div>
+        </div>
       </>
     );
 }

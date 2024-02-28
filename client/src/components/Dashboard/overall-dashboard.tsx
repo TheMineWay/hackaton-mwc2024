@@ -24,7 +24,6 @@ export function OverallDashboard() {
         <DashboardTable />
         <Row>
             <Col xs={24} md={12}>
-                
             </Col>
             <Col xs={24} md={12}>
                 <DeviceMap className={styles.map} location={sumLoc} pointers={data.map((l) => ({

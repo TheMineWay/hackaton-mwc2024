@@ -1,15 +1,15 @@
-import { ApiOutlined, DisconnectOutlined, EditOutlined, MenuOutlined, PhoneFilled } from '@ant-design/icons';
+import { ApiOutlined, ArrowDownOutlined, ArrowUpOutlined, DisconnectOutlined, EditOutlined, MenuOutlined, PhoneFilled } from '@ant-design/icons';
 import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
-import { Col, Row, Skeleton, Slider, Typography } from 'antd';
-import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
 import Icon from '../../components/Icon/icon';
+import { Card, Col, Row, Skeleton, Slider, Statistic, Typography } from 'antd';
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
+import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
 
-const { Text } = Typography;
+const { Title } = Typography;
 
 const phone = '';
 
@@ -20,9 +20,9 @@ export default function Device() {
 
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
-  const { isOnline, setOnlineStatus } = useDeviceStatus();
+  const { isOnline, setOnlineStatus } = useDeviceStatus(id);
   const {bandwidth, setBandwidth} = useDeviceBandWidth(id);
-  
+
   if (!device) return <Skeleton paragraph/>;
 
   return (      
@@ -38,8 +38,8 @@ export default function Device() {
           <h5>Connection: {device.connection}</h5>
         </div>
         <div className={styles.device__info__col}>
-          <h5>Connected To: Home-PC</h5>
-          <h5>Country: Spain</h5>
+          <h5>Connected to: PC-Casa</h5>
+          <h5>Country: {`${location?.raw?.civicAddress?.A1}, ${location?.country}`}</h5>
           {
             device.operatingSystem ? 
             <>
@@ -68,9 +68,9 @@ export default function Device() {
           <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
         </Col>
         <Col xs={24} md={12}>
-          <Row gutter={[12, 6]}>
+          <Row gutter={[12, 12]}>
             <Col span={24}>
-              <Text>Network bandwidth</Text>
+              <Title level={3}>Network bandwidth</Title>
               <Slider value={bandwidth} onChange={setBandwidth} min={1} max={100} marks={{
                 10: 'Economy',
                 30: 'Low',
@@ -79,7 +79,33 @@ export default function Device() {
               }}/>
             </Col>
             <Col span={24}>
-              
+            <Title level={3}>Usage report</Title>
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Card bordered={false}>
+                    <Statistic
+                      title="Active"
+                      value={11.28}
+                      precision={2}
+                      valueStyle={{ color: '#3f8600' }}
+                      prefix={<ArrowUpOutlined />}
+                      suffix="%"
+                    />
+                  </Card>
+                </Col>
+                <Col span={12}>
+                  <Card bordered={false}>
+                    <Statistic
+                      title="Idle"
+                      value={9.3}
+                      precision={2}
+                      valueStyle={{ color: '#cf1322' }}
+                      prefix={<ArrowDownOutlined />}
+                      suffix="%"
+                    />
+                  </Card>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Col>

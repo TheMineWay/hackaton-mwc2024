@@ -3,10 +3,13 @@ import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
-import { Skeleton } from 'antd';
 import Icon from '../../components/Icon/icon';
+import { Col, Row, Skeleton, Slider, Typography } from 'antd';
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
+import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
+
+const { Text } = Typography;
 
 const phone = '';
 
@@ -18,6 +21,7 @@ export default function Device() {
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
   const { isOnline, setOnlineStatus } = useDeviceStatus();
+  const {bandwidth, setBandwidth} = useDeviceBandWidth(id);
   
   if (!device) return <Skeleton paragraph/>;
 
@@ -59,9 +63,27 @@ export default function Device() {
         }
         <MenuOutlined title="Options" />
       </div>
-      <div>
-        <DeviceMap location={location} pointers={location && isOnline ? [{lat: location.latitude, lng: location.longitude}]: []}/>
-      </div>
+      <Row gutter={[12, 12]}>
+        <Col xs={24} md={12}>
+          <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
+        </Col>
+        <Col xs={24} md={12}>
+          <Row gutter={[12, 6]}>
+            <Col span={24}>
+              <Text>Network bandwidth</Text>
+              <Slider value={bandwidth} onChange={setBandwidth} min={1} max={100} marks={{
+                10: 'Economy',
+                30: 'Low',
+                70: 'Fast',
+                85: 'Priority'
+              }}/>
+            </Col>
+            <Col span={24}>
+              
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>
   );
 }

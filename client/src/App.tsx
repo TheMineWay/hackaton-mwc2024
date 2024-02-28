@@ -17,17 +17,13 @@ const queryClient = new QueryClient({
 
 
 function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
         <ConfigProvider
           theme={{
             algorithm: darkAlgorithm,
             token: {
-              colorPrimary: '#000',
               borderRadius: 2,
-              colorBgContainer: '#000',
-              
             },
           }}
         >

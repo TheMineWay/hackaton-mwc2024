@@ -1,4 +1,4 @@
-import { MapContainer, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { DeviceLocationModel } from "../../models/location/device-location.model";
 import { Button, Col, Row, Skeleton } from "antd";
 import styles from './device-map.module.css';
@@ -24,7 +24,7 @@ export default function DeviceMap({ location, pointers, className }: Props) {
                 url={`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`}
               />
               {
-                pointers?.map(({ lng, lat, deviceId }) => (<Popup key={deviceId} position={{
+                pointers?.map(({ lng, lat, deviceId }) => (<Marker key={deviceId} position={{
                   lat,
                   lng,
                 }}>
@@ -40,7 +40,7 @@ export default function DeviceMap({ location, pointers, className }: Props) {
                       )
                     }
                   </Row>
-                </Popup>))
+                </Marker>))
               }
             </MapContainer>
           ) : (<Skeleton/>)}

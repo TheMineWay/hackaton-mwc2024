@@ -41,7 +41,7 @@ const DashboardTable: React.FC = () => {
 
   return (
     <>
-      <Table columns={columns} dataSource={devices} />
+      <Table rowKey='id' columns={columns} dataSource={devices} />
     </>
   );
 };

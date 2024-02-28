@@ -7,6 +7,7 @@ import { DeviceModel } from '../../models/device/device.model';
 import { ColumnType } from 'antd/es/table';
 import { useDeviceLocation } from "../../hooks/location/use-device-location";
 import { format } from "date-fns";
+import DoughnutChart from "../Charts/doughnut-chart";
 
 const DashboardTable: React.FC = () => {
 
@@ -42,6 +43,7 @@ const DashboardTable: React.FC = () => {
   return (
     <>
       <Table rowKey='id' columns={columns} dataSource={devices} />
+      <DoughnutChart />
     </>
   );
 };

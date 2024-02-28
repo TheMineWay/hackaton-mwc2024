@@ -31,7 +31,7 @@ export function OverallDashboard() {
               <BandwidthChart/>
             </div>
             <div className="map__container container">
-              <h2>All Devices</h2>
+              <h2>All Devices ({data.length ?? 0})</h2>
               <DeviceMap className="map" location={sumLoc} pointers={data.map((l) => ({
                   lng: l.location.longitude,
                   lat: l.location.latitude,

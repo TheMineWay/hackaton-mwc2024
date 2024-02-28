@@ -1,4 +1,4 @@
-import { Col, Row, Skeleton } from 'antd';
+import { Skeleton } from 'antd';
 import { useAllDevicesInfo } from '../../hooks/devices/use-all-devices-info';
 import DeviceMap from '../Map/device-map';
 import DashboardTable from '../Table/dashboardTable';

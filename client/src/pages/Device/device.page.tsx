@@ -35,7 +35,7 @@ export default function Device() {
           <h5>Device: {device.type}</h5>
           <h5>Manufacturer: {device.manufacturer}</h5>
           <h5>Model Name : {device.name}</h5>
-          <h5>Connection: {device.connection}</h5>
+          <h5>Connection: {(bandwidth <= 10 ? '3G/' : '') + device.connection}</h5>
         </div>
         <div className={styles.device__info__col}>
           <h5>Connected to: PC-Casa</h5>

@@ -20,7 +20,7 @@ export default function Device() {
 
   const { data: device } = useDeviceById(id);
   const { data: location } = useDeviceLocation(id);
-  const { isOnline, setOnlineStatus } = useDeviceStatus();
+  const { isOnline, setOnlineStatus } = useDeviceStatus(id);
   const {bandwidth, setBandwidth} = useDeviceBandWidth(id);
   
   if (!device) return <Skeleton paragraph/>;

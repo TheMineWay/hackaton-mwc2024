@@ -8,7 +8,6 @@ import { ColumnType } from 'antd/es/table';
 
 const DashboardTable: React.FC = () => {
 
-  const { isOnline } = useDeviceStatus();
   const { data: devices } = useAllDevices();
 
   const columns:ColumnType<DeviceModel>[] = [
@@ -22,7 +21,7 @@ const DashboardTable: React.FC = () => {
     },
     {
       title: 'Status',
-      render: () => <Badge status={isOnline ? 'success' : 'error'} text={isOnline ? 'Connected' : 'No connection'} ></Badge>,
+      render: (_, { id }) => <Status id={id}/>,
     },
     {
       title: 'Connection',
@@ -42,3 +41,9 @@ const DashboardTable: React.FC = () => {
 };
 
 export default DashboardTable;
+
+const Status = ({ id }: { id: string }) => {
+  const { isOnline } = useDeviceStatus(id);
+
+  return <Badge status={isOnline ? 'success' : 'error'} text={isOnline ? 'Connected' : 'No connection'} ></Badge>
+}

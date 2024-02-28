@@ -28,7 +28,7 @@ export default function DeviceMap({ location, pointers, className }: Props) {
                   lat,
                   lng,
                 }}>
-                  <Row gutter={[3, 3]}>
+                  <Row gutter={[3, 3]} key={deviceId}>
                     <Col span={24}>
                       <p>Device is here</p>
                     </Col>

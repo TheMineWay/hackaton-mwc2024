@@ -1,6 +1,7 @@
 import { Col, Row, Skeleton } from 'antd';
-import DeviceMap from '../Map/device-map';
 import { useAllDevicesInfo } from '../../hooks/devices/use-all-devices-info';
+import DeviceMap from '../Map/device-map';
+import DashboardTable from '../Table/dashboardTable';
 import styles from './overall-dashboard.module.css';
 
 export function OverallDashboard() {
@@ -19,6 +20,8 @@ export function OverallDashboard() {
     sumLoc.longitude = sumLoc.longitude / data.length;
 
     return (
+      <>
+        <DashboardTable />
         <Row>
             <Col xs={24} md={12}>
             </Col>
@@ -29,5 +32,6 @@ export function OverallDashboard() {
                 }))}/>
             </Col>
         </Row>
+      </>
     );
 }

@@ -1,5 +1,5 @@
 import { Avatar } from 'antd';
-import { UserOutlined, InboxOutlined, BellOutlined } from '@ant-design/icons';
+import { UserOutlined, InboxOutlined } from '@ant-design/icons';
 import Badge from '../Badge/notificationBadge';
 import Logo from './navbarLogo.png';
 import './navbar.css';

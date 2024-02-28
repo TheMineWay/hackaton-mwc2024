@@ -65,7 +65,7 @@ export default function Device() {
       </div>
       <Row gutter={[12, 12]}>
         <Col xs={24} md={12}>
-          <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
+          <DeviceMap location={location} pointers={location && isOnline ? [{lat: location.latitude, lng: location.longitude}]: []}/>
         </Col>
         <Col xs={24} md={12}>
           <Row gutter={[12, 12]}>

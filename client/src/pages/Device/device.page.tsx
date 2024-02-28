@@ -4,6 +4,7 @@ import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
 import { Skeleton } from 'antd';
+import Icon from '../../components/Icon/icon';
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
 
@@ -22,7 +23,7 @@ export default function Device() {
 
   return (      
     <div className={styles.device}>
-      <h2>{device.name}</h2>
+      <h2>{Icon(device.type, device.name)}</h2>
       <p>{device.description}</p>
       <h3>Status: {isOnline ? '🟢 online' : '🔴 offline'}</h3>
       <div className={styles.device__info}>

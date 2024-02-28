@@ -78,7 +78,7 @@ export default function Account() {
           <Button type="primary">
             <PlusCircleFilled />Connect+
           </Button>
-          <Button type="primary" >
+          <Button type="primary" style={{background: '#4096ff'}} >
             <InboxOutlined />Send Message
           </Button>
         </div>

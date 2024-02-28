@@ -27,7 +27,7 @@ export function useDeviceStatus(id: string, disableMock?: boolean) {
 
         addEventListener('keypress', onPress);
         return () => removeEventListener('keypress', onPress);
-    }, [id]);
+    }, [disableMock, id]);
 
     useEffect(() => {
         set(id, isOnline);

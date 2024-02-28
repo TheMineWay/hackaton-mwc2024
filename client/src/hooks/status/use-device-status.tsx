@@ -14,11 +14,11 @@ const set = (id: string, status: boolean) => {
     localStorage.setItem(LS_KEY(id), status ? 'true' : 'false');
 }
 
-export function useDeviceStatus(id: string = 'all') {
+export function useDeviceStatus(id: string, disableMock?: boolean) {
     const [ isOnline, setOnlineStatus ] = useState(get(id));
 
     useEffect(() => {
-        if (id === 'all') return;
+        if (disableMock) return;
         const onPress = (e: KeyboardEvent) => {
             // Mock status
             if (e.key === 'q') setOnlineStatus(true);

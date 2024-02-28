@@ -3,6 +3,7 @@ export interface DeviceModel {
   name: string;
   model: string;
   serialNumber: string;
+  manufacturer: string;
   phoneNumber: string;
   description: string;
   connection: string;

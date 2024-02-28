@@ -3,14 +3,14 @@ export const DEVICES_MOCK = [
     id: 'joel1@testcsp.net',
     name: 'Phone-001',
     type: 'Mobile',
-    manufacturer: 'Apple',
+    manufacturer: 'Nokia',
     phoneNumber: '555-1234',
     serialNumber: 'XYZ789',
-    operatingSystem: 'iOS',
+    operatingSystem: 'Android',
     screenSize: '6.1 inches',
     storage: '256GB',
     connection: '4G',
-    description: 'iOS Mobile, 6.1-inch screen, 256GB storage'
+    description: 'Nokia mobile, 6.1-inch screen, 256GB storage'
   },
   {
     id: 'joel2@testcsp.net',

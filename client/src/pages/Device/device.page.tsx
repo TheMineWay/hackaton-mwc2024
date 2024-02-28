@@ -3,11 +3,11 @@ import { useDeviceLocation } from '../../hooks/location/use-device-location';
 import { useDeviceStatus } from '../../hooks/status/use-device-status';
 import { useDeviceById } from '../../hooks/devices/use-device-by-id';
 import { useParams } from 'react-router-dom';
-import Icon from '../../components/Icon/icon';
 import { Col, Row, Skeleton, Slider, Typography } from 'antd';
+import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
+import Icon from '../../components/Icon/icon';
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
-import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
 
 const { Text } = Typography;
 
@@ -32,14 +32,14 @@ export default function Device() {
       <h3>Status: {isOnline ? '🟢 online' : '🔴 offline'}</h3>
       <div className={styles.device__info}>
         <div className={styles.device__info__col}>
-          <h5>Dispositivo: {device.type}</h5>
-          <h5>Modelo: Nokia</h5>
-          <h5>Nombre de modelo: {device.name}</h5>
+          <h5>Device: {device.type}</h5>
+          <h5>Manufacturer: {device.manufacturer}</h5>
+          <h5>Model Name : {device.name}</h5>
           <h5>Connection: {device.connection}</h5>
         </div>
         <div className={styles.device__info__col}>
-          <h5>Conectado a: PC-Casa</h5>
-          <h5>Pais: España</h5>
+          <h5>Connected To: Home-PC</h5>
+          <h5>Country: Spain</h5>
           {
             device.operatingSystem ? 
             <>

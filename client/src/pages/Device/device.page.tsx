@@ -84,24 +84,24 @@ export default function Device() {
                 <Col span={12}>
                   <Card bordered={false}>
                     <Statistic
-                      title="Active"
-                      value={11.28}
+                      title="Today's usage"
+                      value={5.2}
                       precision={2}
                       valueStyle={{ color: '#3f8600' }}
                       prefix={<ArrowUpOutlined />}
-                      suffix="%"
+                      suffix="gbps"
                     />
                   </Card>
                 </Col>
                 <Col span={12}>
                   <Card bordered={false}>
                     <Statistic
-                      title="Idle"
-                      value={9.3}
+                      title="Yesterday's usage"
+                      value={3.3}
                       precision={2}
                       valueStyle={{ color: '#cf1322' }}
                       prefix={<ArrowDownOutlined />}
-                      suffix="%"
+                      suffix="gbps"
                     />
                   </Card>
                 </Col>

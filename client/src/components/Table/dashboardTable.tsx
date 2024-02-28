@@ -43,7 +43,7 @@ const DashboardTable: React.FC = () => {
 export default DashboardTable;
 
 const Status = ({ id }: { id: string }) => {
-  const { isOnline } = useDeviceStatus(id);
+  const { isOnline } = useDeviceStatus(id, true);
 
   return <Badge status={isOnline ? 'success' : 'error'} text={isOnline ? 'Connected' : 'No connection'} ></Badge>
 }

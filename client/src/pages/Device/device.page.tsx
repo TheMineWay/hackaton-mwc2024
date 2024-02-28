@@ -27,6 +27,7 @@ export default function Device() {
 
   return (      
     <div className={styles.device}>
+
       <h2>{Icon(device.type, device.name)}</h2>
       <p>{device.description}</p>
       <h3>Status: {isOnline ? '🟢 online' : '🔴 offline'}</h3>
@@ -38,7 +39,7 @@ export default function Device() {
           <h5>Connection: {device.connection}</h5>
         </div>
         <div className={styles.device__info__col}>
-          <h5>Connected to: PC-Casa</h5>
+          <h5>Connected to: PC-Home</h5>
           <h5>Country: {`${location?.raw?.civicAddress?.A1}, ${location?.country}`}</h5>
           {
             device.operatingSystem ? 
@@ -63,6 +64,7 @@ export default function Device() {
         }
         <MenuOutlined title="Options" />
       </div>
+
       <Row gutter={[12, 12]}>
         <Col xs={24} md={12}>
           <DeviceMap location={location} pointers={location && isOnline ? [{lat: location.latitude, lng: location.longitude}]: []}/>
@@ -110,6 +112,7 @@ export default function Device() {
           </Row>
         </Col>
       </Row>
+
     </div>
   );
 }

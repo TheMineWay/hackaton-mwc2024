@@ -1,6 +1,7 @@
 import { Avatar } from 'antd';
-import Logo from './navbarLogo.png';
 import { UserOutlined, InboxOutlined, BellOutlined } from '@ant-design/icons';
+import Badge from '../Badge/notificationBadge';
+import Logo from './navbarLogo.png';
 import './navbar.css';
 
 function Navbar() {
@@ -13,8 +14,8 @@ function Navbar() {
           </div>
         </div>
         <div className="user__container">
-        <BellOutlined />
-        <InboxOutlined />
+        <Badge />
+        <InboxOutlined style={{fontSize: 20}} />
           <div className="user__avatar__container">
             <Avatar size="large" icon={<UserOutlined />} />
           </div>

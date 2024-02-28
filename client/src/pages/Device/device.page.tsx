@@ -60,7 +60,7 @@ export default function Device() {
         <MenuOutlined title="Options" />
       </div>
       <div>
-        <DeviceMap location={location} pointers={location ? [{lat: location.latitude, lng: location.longitude}]: []}/>
+        <DeviceMap location={location} pointers={location && isOnline ? [{lat: location.latitude, lng: location.longitude}]: []}/>
       </div>
     </div>
   );

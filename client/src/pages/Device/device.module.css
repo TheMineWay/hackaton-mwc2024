@@ -11,6 +11,10 @@
   position: relative;
 }
 
+h3 {
+  margin: 0;
+}
+
 .device__info {
   display: flex;
   gap: 200px;

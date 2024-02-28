@@ -39,6 +39,7 @@ input::placeholder, select::placeholder {
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .buttons {

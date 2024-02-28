@@ -7,6 +7,7 @@ import { Col, Row, Skeleton, Slider, Typography } from 'antd';
 import styles from './device.module.css';
 import DeviceMap from '../../components/Map/device-map';
 import { useDeviceBandWidth } from '../../hooks/devices/use-device-bandwidth';
+import BandwidthChart from '../../components/Charts/bandwidth-chart';
 
 const { Text } = Typography;
 
@@ -78,6 +79,7 @@ export default function Device() {
               }}/>
             </Col>
             <Col span={24}>
+              <BandwidthChart/>
             </Col>
           </Row>
         </Col>

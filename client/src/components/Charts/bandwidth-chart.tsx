@@ -9,7 +9,7 @@ export default function BandwidthChart() {
     labels: ['Boosted', 'Normal', 'Low consumption'],
     datasets: [
       {
-        label: "# of devices over today's report",
+        label: "# of hours",
         data: [12, 19, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

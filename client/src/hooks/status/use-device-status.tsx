@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useDeviceStatus() {
-    const [ isOnline, setOnlineStatus] = useState(false);
+    const [ isOnline, setOnlineStatus ] = useState(false);
 
     useEffect(() => {
         const onPress = (e: KeyboardEvent) => {
